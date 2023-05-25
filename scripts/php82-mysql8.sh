@@ -31,7 +31,7 @@ apt-get -y install php8.2-cli
 apt-get -y install libapache2-mod-php8.2
 
 # Update apache2 php.ini with appropriate Sugar values
-sed -i 's/memory_limit =.*/memory_limit = 512M/' /etc/php/8.2/apache2/php.ini
+sed -i 's/memory_limit =.*/memory_limit = 1024M/' /etc/php/8.2/apache2/php.ini
 sed -i 's/upload_max_filesize =.*/upload_max_filesize = 20M/' /etc/php/8.2/apache2/php.ini
 sed -i 's/max_execution_time =.*/max_execution_time = 300/' /etc/php/8.2/apache2/php.ini
 sed -i 's/;date.timezone =/date.timezone = UTC/' /etc/php/8.2/apache2/php.ini

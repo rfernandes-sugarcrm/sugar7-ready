@@ -4,10 +4,10 @@
         "type": "shell",
         "scripts": [
             "scripts/base.sh",
-            "scripts/elasticsearch843.sh",
             "scripts/php82-mysql8.sh",
             "scripts/u18/apache24.sh",
             "scripts/u18/virtualbox.sh",
+            "scripts/elasticsearch843.sh",
             "scripts/vagrant.sh",
             "scripts/dev-tools.sh",
             "scripts/cleanup.sh",

@@ -12,9 +12,14 @@ Vagrant.configure(2) do |config|
 
   # Symbolically link default share of Vagrant directory to web root.
   # Put your Sugar files in current directory and they will appear at http://localhost:8080/sugar/
-  config.vm.provision "shell",
-    inline: "ln -s /vagrant /var/www/html/sugar"
-
+  config.vm.provision "shell", inline: <<-SHELL
+    ln -s /vagrant /var/www/html/sugar
+    # Disable xpack.security in elasticsearch.yml
+    sed -i '/^xpack.security.enabled:/ s/true/false/' /etc/elasticsearch/elasticsearch.yml
+    # Restart Elasticsearch service
+    systemctl restart elasticsearch
+  SHELL
+  
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
